@@ -1,0 +1,10 @@
+.cadre_admin{
+    background-image: url("../image/image4.jpeg") ;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 50vw;
+}
+.scrollZone{
+    overflow: scroll;
+    max-height: 400px;
+}
