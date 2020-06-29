@@ -36,10 +36,15 @@ class ChambreController extends Controller{
     }
 
     public function listChambre(){
+
+        // $this->dao=new ChambreDao();
+        // $chambre=$this->dao->findAll();
+        // var_dump($chambre);
+
         $this->views="listChambre";
         $this->render();
-        $this->dao=new ChambreDao();
-        $this->dao->findAll();
+        
+        // views/chambre/listeChambre
 
 
     }

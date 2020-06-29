@@ -2,12 +2,12 @@
 
 class Etudiant implements IChambre{
 
-    protected $matricule;
-    protected $prenom;
-    protected $nom;
-    protected $email;
-    protected $telephone;
-    protected $dateNaiss;
+    public $matricule;
+    public $prenom;
+    public $nom;
+    public $email;
+    public $telephone;
+    public $dateNaiss;
 
 
     public function __construct($row=null)

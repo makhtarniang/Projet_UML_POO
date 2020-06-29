@@ -16,17 +16,21 @@ class EtudiantController extends Controller{
 
     public function listEtudiant(){
 
-        $this->EtudiantDao=new EtudiantDao();
-        $etudiants=$this->EtudiantDao->findAll();
-
         $this->views="listEtudiant";
         $this->render();
-        echo "<pre>";
-         var_dump($etudiants);
-         echo "</pre>";
+
     }
 
     public function RechercherMatricule(){
 
+        if(isset($_POST["btn_recherche"])){
+            $this->dao= new EtudiantDao();
+            $this->dao->findByMatricule();
+            extract($_POST);
+            
+        }
+
+        $this->views="listEtudiant";
+        $this->render();
     }
 }

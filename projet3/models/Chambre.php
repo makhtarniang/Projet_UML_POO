@@ -1,9 +1,9 @@
 <?php
 
 class Chambre implements IChambre {
-    private $numero;
-    private $numeroBat;
-    private $type;
+    public $numero;
+    public $numeroBat;
+    public $type;
 
 
     

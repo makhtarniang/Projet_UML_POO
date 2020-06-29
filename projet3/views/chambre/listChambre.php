@@ -1,4 +1,11 @@
 
+<?php  
+
+
+$this->dao=new ChambreDao();
+$chambre=$this->dao->findAll();
+?>
+
 <!-- formulaire d'ajout d'une chambre -->
 
 <div class="container margin-auto bg-white">
@@ -22,14 +29,16 @@
             </tr>
             </thead>
             <tbody>
+            <?php foreach($chambre as $chambres):?>
                 <tr>
-                    <?php foreach($data as $datas){ ?>
-                    <td scope="row"><?=$datas['numero']?></td>
-                    <td><?=$rowBD['numeroBat']?></td>
-                    <td><?=$data['type']?></td>
+
+                    
+                    <td scope="row"><?= $chambres->numero?></td>
+                    <td><?=$chambres->numeroBat?></td>
+                    <td><?=$chambres->type?></td>
                     <td><button class="btn btn-outline-info my-2 my-sm-0">modifier</button></td>
                     <td><button class="btn btn-outline-info my-2 my-sm-0">supprimer</button></td>
-                    <?php } ?>
+            <?php endforeach; ?>
                 </tr>
                
             </tbody>
