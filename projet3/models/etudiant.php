@@ -1,6 +1,6 @@
 <?php
 
-class Etudiant{
+class Etudiant implements IChambre{
 
     protected $matricule;
     protected $prenom;
@@ -9,8 +9,21 @@ class Etudiant{
     protected $telephone;
     protected $dateNaiss;
 
-    public function __construct($row)
+
+    public function __construct($row=null)
 	{
+		if ($row!=null) {
+			$this->hydrate($row);
+		}
+	}
+
+	public function hydrate( $row){
+		$this->matricule=$row['matricule'];
+		$this->prenom=$row['prenom'];
+		$this->nom=$row['nom'];
+		$this->email=$row['email'];
+		$this->telephone=$row['telephone'];
+		$this->dateNaiss=$row['dateNaiss'];
 		
 	}
 
@@ -40,7 +53,7 @@ class Etudiant{
     }
 
     public function setMatricule( $matricule) {
-		$this.$matricule = $matricule;
+		$this->$matricule = $matricule;
 	}
 
 

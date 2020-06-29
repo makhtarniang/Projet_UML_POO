@@ -5,9 +5,9 @@
             
     <h1 class="d-flex justify-content-center font-weight-bold mt-5">LISTE DES CHAMBRES</h1>
     <form class="form-inline my-2 my-lg-0">
-                <label for="">type :</label>
+                <label for="">type : </label>
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <label for="">departement :</label>
+                <label for="">departement : </label>
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                 
                 <button class="btn btn-outline-info my-2 my-sm-0" type="submit">rechercher</button>
@@ -23,11 +23,13 @@
             </thead>
             <tbody>
                 <tr>
-                    <td scope="row">2020NIOU0001</td>
-                    <td>B1</td>
-                    <td>individuel</td>
+                    <?php foreach($data as $datas){ ?>
+                    <td scope="row"><?=$datas['numero']?></td>
+                    <td><?=$rowBD['numeroBat']?></td>
+                    <td><?=$data['type']?></td>
                     <td><button class="btn btn-outline-info my-2 my-sm-0">modifier</button></td>
                     <td><button class="btn btn-outline-info my-2 my-sm-0">supprimer</button></td>
+                    <?php } ?>
                 </tr>
                
             </tbody>

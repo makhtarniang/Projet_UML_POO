@@ -9,7 +9,7 @@ abstract class manager implements IDao{
     private function getConnexion(){
         if($this->pdo==null){
             try {
-                $this->pdo = new pdo("mysql:host=localhost;dbname=projet3", "root", "");
+                $this->pdo = new pdo("mysql:host=mysql-projet3.alwaysdata.net;dbname=projet3_logement", "projet3", "etudi@nt");
                 $this->pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
             } catch (PDOException $e) {
                 $erreur="vous avez une erreur lors de la connexion";
@@ -25,13 +25,19 @@ abstract class manager implements IDao{
     }
 
     // les requetes de mis a jour 
-    public function executeUpdate($sql){
+    public function executeUpdate($sql,$numero,$numeroBat,$type){
         $this->getConnexion();
 
             // traitement
-        $nbrLigne= $this->pdo->execute($sql); 
+            $req=$this->pdo->prepare($sql);   
+            $req->execute(array($numero,$numeroBat,$type)); 
+            if($req){
+                echo 'enregistrement reussi';
+            }else{
+                echo 'encore echoue';
+            }
         $this->closeConnexion();
-        return $nbrLigne;
+        // return $nbrLigne;
     }
     
     // les requetes d'interogation
@@ -50,8 +56,10 @@ abstract class manager implements IDao{
 
 // lister les informations d'une table
     public function findAll(){
-       $sql="SELECT * FROM $this->tableName"; 
-       $data= $this->executeSelect($sql);
-        var_dump($data);
+       $sql="SELECT * FROM $this->tableName ORDER BY id DESC"; 
+        return $this->executeSelect($sql);
+    //    echo '<pre>';
+    //     var_dump($data);
+    //     echo '</pre>';
     }
 }

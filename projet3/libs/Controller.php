@@ -4,7 +4,9 @@ class Controller{
     protected $views;
     protected $layout;
     protected $folder;
-
+    protected $data_view=[];
+    protected $dao;
+    protected $validator;
 
     public function render(){
 
@@ -17,4 +19,5 @@ class Controller{
 
         require_once($pathLayout);
     }
+    
 }

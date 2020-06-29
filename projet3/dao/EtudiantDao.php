@@ -7,9 +7,9 @@ class EtudiantDao extends manager{
         $this->className="Etudiant";
 
     } 
-    public function add($obj){
+    public function add($numero,$numeroBat,$type){
         $sql="";
-        return $this->executeUpdate($sql)!=0;
+        // return $this->executeUpdate($sql)!=0;
     }
 
     public function findByMatricule($matricule){

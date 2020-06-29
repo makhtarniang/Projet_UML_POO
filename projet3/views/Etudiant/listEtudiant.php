@@ -23,25 +23,17 @@
             </thead>
             <tbody>
                 <tr>
-                    <td scope="row">2020NIOU0001</td>
-                    <td>FATOU</td>
-                    <td>NIANG</td>
-                    <td>fatou04.niang@gmail.com</td>
-                    <td>779184216</td>
-                    <td>10/04/1997</td>
+                    <?php foreach($etudiants as $datas): ?>
+                    <td scope="row"><?= $datas->matricule()?></td>
+                    <td><?= $datas["prenom"];?></td>
+                    <td><?= $datas->nom()?></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                     <td><button class="btn btn-outline-info my-2 my-sm-0">modifier</button></td>
                     <td><button class="btn btn-outline-info my-2 my-sm-0">supprimer</button></td>
                 </tr>
-                <tr>
-                    <td scope="row">2020NIAR0002</td>
-                    <td>MAKHTAR</td>
-                    <td>NIANG</td>
-                    <td>makhtar04.niang@gmail.com</td>
-                    <td>772675432</td>
-                    <td>01/10/1992</td>
-                    <td><button class="btn btn-outline-info my-2 my-sm-0">modifier</button></td>
-                    <td><button class="btn btn-outline-info my-2 my-sm-0">supprimer</button></td>
-                </tr>
+                <?php endforeach ?>
             </tbody>
     </table>
 </div>

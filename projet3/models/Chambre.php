@@ -15,7 +15,7 @@ class Chambre implements IChambre {
     {
         if ($row!=null) {
             $this->hydrate($row);
-        }
+        } 
     }
 
     // la redefinition
